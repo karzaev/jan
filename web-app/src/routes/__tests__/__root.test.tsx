@@ -47,9 +47,6 @@ vi.mock('@/providers/ExtensionProvider', () => ({
 vi.mock('@/providers/ToasterProvider', () => ({
   ToasterProvider: () => <div data-testid="toaster-provider" />,
 }))
-vi.mock('@/providers/AnalyticProvider', () => ({
-  AnalyticProvider: () => <div data-testid="analytic-provider" />,
-}))
 vi.mock('@/providers/GlobalEventHandler', () => ({
   GlobalEventHandler: () => <div data-testid="global-event" />,
 }))

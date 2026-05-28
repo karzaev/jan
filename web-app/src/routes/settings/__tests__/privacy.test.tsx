@@ -53,13 +53,6 @@ vi.mock('@/components/ui/switch', () => ({
   ),
 }))
 
-vi.mock('posthog-js', () => ({
-  default: {
-    opt_in_capturing: vi.fn(),
-    opt_out_capturing: vi.fn(),
-  },
-}))
-
 vi.mock('@/constants/routes', () => ({
   route: {
     settings: {

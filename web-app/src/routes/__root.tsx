@@ -15,7 +15,6 @@ import { useAnalytic } from '@/hooks/useAnalytic'
 import { PromptAnalytic } from '@/containers/analytics/PromptAnalytic'
 import { useJanModelPrompt } from '@/hooks/useJanModelPrompt'
 import { PromptJanModel } from '@/containers/PromptJanModel'
-import { AnalyticProvider } from '@/providers/AnalyticProvider'
 import { useLeftPanel } from '@/hooks/useLeftPanel'
 import ToolApproval from '@/containers/dialogs/ToolApproval'
 import { TranslationProvider } from '@/i18n/TranslationContext'
@@ -56,7 +55,6 @@ const AppLayout = () => {
         defaultWidth={sidebarWidth}
         onWidthChange={setLeftPanelWidth}
       >
-        <AnalyticProvider />
         <KeyboardShortcutsProvider />
         {/* Fake absolute panel top to enable window drag */}
         {IS_WINDOWS && <WindowControls />}
