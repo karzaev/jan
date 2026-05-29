@@ -5,7 +5,6 @@ import '@testing-library/jest-dom'
 import React from 'react'
 
 const h = vi.hoisted(() => ({
-  productAnalyticPrompt: false,
   showJanModelPrompt: false,
   leftPanelOpen: true,
   sidebarWidth: 260,
@@ -82,9 +81,6 @@ vi.mock('@/containers/dialogs/AttachmentIngestionDialog', () => ({
 vi.mock('@/containers/dialogs/ErrorDialog', () => ({
   default: () => <div data-testid="error-dialog" />,
 }))
-vi.mock('@/containers/analytics/PromptAnalytic', () => ({
-  PromptAnalytic: () => <div data-testid="prompt-analytic" />,
-}))
 vi.mock('@/containers/PromptJanModel', () => ({
   PromptJanModel: () => <div data-testid="prompt-jan" />,
 }))
@@ -109,9 +105,6 @@ vi.mock('@/components/ui/sidebar', () => ({
 }))
 
 // Hooks
-vi.mock('@/hooks/useAnalytic', () => ({
-  useAnalytic: () => ({ productAnalyticPrompt: h.productAnalyticPrompt }),
-}))
 vi.mock('@/hooks/useJanModelPrompt', () => ({
   useJanModelPrompt: () => ({ showJanModelPrompt: h.showJanModelPrompt }),
 }))
@@ -142,7 +135,6 @@ const renderComponent = () => {
 describe('__root route', () => {
   beforeEach(() => {
     vi.clearAllMocks()
-    h.productAnalyticPrompt = false
     h.showJanModelPrompt = false
     // reset document state
     document.body.className = ''
@@ -175,18 +167,6 @@ describe('__root route', () => {
     expect(screen.getByTestId('oocp')).toBeInTheDocument()
     expect(screen.getByTestId('app-updater')).toBeInTheDocument()
     expect(screen.getByTestId('backend-updater')).toBeInTheDocument()
-  })
-
-  it('renders PromptAnalytic when productAnalyticPrompt is true', () => {
-    h.productAnalyticPrompt = true
-    renderComponent()
-    expect(screen.getByTestId('prompt-analytic')).toBeInTheDocument()
-  })
-
-  it('does not render PromptAnalytic when productAnalyticPrompt is false', () => {
-    h.productAnalyticPrompt = false
-    renderComponent()
-    expect(screen.queryByTestId('prompt-analytic')).not.toBeInTheDocument()
   })
 
   it('renders PromptJanModel when showJanModelPrompt is true', () => {

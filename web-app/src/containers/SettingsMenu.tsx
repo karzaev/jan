@@ -12,7 +12,6 @@ import {
   IconPalette,
   IconPlus,
   IconTopologyStar3,
-  IconLock,
   IconCpu,
   IconWorld,
   IconPaperclip,
@@ -204,7 +203,6 @@ const SettingsMenu = () => {
       isEnabled: true,
       icon: IconCpu,
     },
-    { title: 'common:privacy', route: route.settings.privacy, icon: IconLock },
   ]
 
   const integrationSettings = [
